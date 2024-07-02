@@ -21,4 +21,10 @@ public class Member {
     @ManyToOne
     @JoinColumn(name = "chapter_id", referencedColumnName = "id")
     private Chapter chapter;
+
+    public Member(Integer id, String name, Status status) {
+        this.id = id;
+        this.name = name;
+        this.status = status;
+    }
 }
