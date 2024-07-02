@@ -19,4 +19,9 @@ public class Guest {
     @ManyToOne
     @JoinColumn(name = "event_id", referencedColumnName = "id")
     private Event event;
+
+    public Guest(Integer id, String name){
+        this.name = name;
+        this.status = status;
+    }
 }

@@ -10,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 import java.util.Optional;
 
-import static ironhack.schl.Lab3_08.model.Status.ACTIVE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -24,7 +23,7 @@ public class MemberRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        member = new Member(1244,"Yoland", ACTIVE);
+        member = new Member(1244,"Yoland");
         memberRepository.save(member);
 
     }
@@ -35,24 +34,24 @@ public class MemberRepositoryTest {
 
 
     @Test
-    public void findAll_chaptersPresent_chapterList() {
-        Member newMember = new Member(5678, "Yoland", ACTIVE);
+    public void findAll_membersPresent_memberList() {
+        Member newMember = new Member(5678, "Yuri");
         memberRepository.save(newMember);
         List<Member> memberList = memberRepository.findAll();
         assertEquals(2, memberList.size());
     }
 
     @Test
-    public void deleteById_validId_chapterDeleted() {
-        memberRepository.deleteById(1234);
-        Optional<Member> foundMember = memberRepository.findById(1234);
+    public void deleteById_validId_memberDeleted() {
+        memberRepository.deleteById(1244);
+        Optional<Member> foundMember = memberRepository.findById(1244);
         assertTrue(foundMember.isEmpty());
     }
 
 
     @Test
     public void findById_invalidId_memberNotPresent() {
-        Optional<Member> chapterOptional = memberRepository.findById(999);
+        Optional<Member> chapterOptional = memberRepository.findById(453);
         assertTrue(chapterOptional.isEmpty());
     }
 

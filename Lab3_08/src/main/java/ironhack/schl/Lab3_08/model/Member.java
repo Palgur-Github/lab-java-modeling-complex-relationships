@@ -22,9 +22,8 @@ public class Member {
     @JoinColumn(name = "chapter_id", referencedColumnName = "id")
     private Chapter chapter;
 
-    public Member(Integer id, String name, Status status) {
+    public Member(Integer id, String name) {
         this.id = id;
         this.name = name;
-        this.status = status;
     }
 }

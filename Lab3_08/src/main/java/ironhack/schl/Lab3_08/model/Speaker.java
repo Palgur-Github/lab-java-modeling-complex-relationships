@@ -25,4 +25,9 @@ public class Speaker {
             joinColumns = @JoinColumn(name = "speaker_id"),
             inverseJoinColumns = @JoinColumn(name = "conference_id"))
     private Set<Conferences> conferences = new HashSet<>();
+
+    public Speaker(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
